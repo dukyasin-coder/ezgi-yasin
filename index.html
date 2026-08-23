@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezgi & Yasin ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#080808;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,70,100,.08),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(255,70,100,.06),transparent 30%);
+    pointer-events:none;
+    z-index:-1;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    position:relative;
+    overflow:hidden;
+}
+
+.heart{
+    position:absolute;
+    color:#ff5c76;
+    opacity:.55;
+    animation:float 7s linear infinite;
+    font-size:20px;
+}
+
+.heart:nth-child(1){left:10%;animation-delay:0s}
+.heart:nth-child(2){left:25%;animation-delay:2s}
+.heart:nth-child(3){left:70%;animation-delay:1s}
+.heart:nth-child(4){left:88%;animation-delay:4s}
+.heart:nth-child(5){left:50%;animation-delay:3s}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh) scale(.5);
+        opacity:0;
+    }
+    30%{opacity:.6}
+    to{
+        transform:translateY(-20vh) scale(1.2);
+        opacity:0;
+    }
+}
+
+.hero h1{
+    font-size:clamp(55px,15vw,110px);
+    font-weight:300;
+    letter-spacing:4px;
+    background:linear-gradient(90deg,#fff,#ff758c,#fff);
+    background-size:200%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+    to{background-position:200%}
+}
+
+.hero p{
+    margin-top:20px;
+    color:#aaa;
+    font-size:17px;
+}
+
+.date{
+    margin-top:10px;
+    color:#ff7188!important;
+}
+
+.scroll{
+    position:absolute;
+    bottom:30px;
+    font-size:25px;
+    animation:bounce 2s infinite;
+    color:#ff7188;
+}
+
+@keyframes bounce{
+    50%{transform:translateY(10px)}
+}
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:90px 22px;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title h2{
+    font-size:32px;
+    font-weight:400;
+}
+
+.title span{
+    display:block;
+    margin:12px auto;
+    width:45px;
+    height:2px;
+    background:#ff657d;
+}
+
+.counter{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    background:#111;
+    border:1px solid #222;
+    border-radius:20px;
+    padding:25px 10px;
+    text-align:center;
+}
+
+.counter strong{
+    display:block;
+    font-size:30px;
+    color:#ff7188;
+}
+
+.counter small{
+    color:#888;
+}
+
+.story{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
+
+.story-text h2{
+    font-size:35px;
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+.story-text p{
+    color:#aaa;
+    line-height:1.9;
+    font-size:16px;
+}
+
+.story-photo{
+    height:330px;
+    border-radius:25px;
+    background:linear-gradient(135deg,#191919,#302027);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#555;
+    border:1px solid #292929;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.photo{
+    aspect-ratio:1;
+    border-radius:15px;
+    background:linear-gradient(135deg,#171717,#282025);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#555;
+    overflow:hidden;
+    border:1px solid #222;
+    transition:.3s;
+}
+
+.photo:hover{
+    transform:scale(1.03);
+    border-color:#ff657d;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.letter{
+    background:#111;
+    border:1px solid #252525;
+    border-radius:25px;
+    padding:45px 30px;
+    text-align:center;
+}
+
+.letter h2{
+    font-weight:400;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.letter p{
+    max-width:700px;
+    margin:auto;
+    color:#aaa;
+    line-height:2;
+}
+
+.highlight{
+    color:#ff7188;
+}
+
+.final{
+    text-align:center;
+    padding:110px 25px;
+    background:
+    radial-gradient(circle,#291218 0%,#080808 65%);
+}
+
+.final h2{
+    font-size:40px;
+    font-weight:300;
+}
+
+.final p{
+    color:#aaa;
+    margin-top:20px;
+    line-height:1.8;
+}
+
+.infinity{
+    font-size:45px;
+    color:#ff7188;
+    margin-top:25px;
+}
+
+@media(max-width:650px){
+    .counter{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px 5px;
+    }
+
+    .story{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    section{
+        padding:70px 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+<div class="heart">♥</div>
+
+<h1>Ezgi & Yasin</h1>
+
+<p>İyi ki sen.</p>
+
+<p class="date">7 Ekim 2024'ten beri ❤️</p>
+
+<div class="scroll">↓</div>
+
+</div>
+
+
+<section>
+
+<div class="title">
+<h2>Bizim Hikâyemiz</h2>
+<span></span>
+</div>
+
+<div class="counter">
+
+<div>
+<strong id="days">0</strong>
+<small>Gün</small>
+</div>
+
+<div>
+<strong id="hours">0</strong>
+<small>Saat</small>
+</div>
+
+<div>
+<strong id="minutes">0</strong>
+<small>Dakika</small>
+</div>
+
+<div>
+<strong id="seconds">0</strong>
+<small>Saniye</small>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="story">
+
+<div class="story-text">
+
+<h2>İyi ki sen.</h2>
+
+<p>
+Bazı insanlar hayatımıza girer ve her şey biraz daha güzel olur.
+Sen benim için tam olarak öylesin Ezgi.
+</p>
+
+<br>
+
+<p>
+Seninle geçirdiğim zamanın sadece büyük anları değil,
+en sıradan dakikaları bile benim için değerli.
+</p>
+
+<br>
+
+<p class="highlight">
+Ve daha yaşayacağımız çok şey var.
+</p>
+
+</div>
+
+<div class="story-photo">
+📷 Fotoğrafımız burada olacak
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="title">
+
+<h2>Bizden Kareler ❤️</h2>
+
+<span></span>
+
+</div>
+
+<div class="gallery">
+
+<div class="photo">Fotoğraf 01</div>
+<div class="photo">Fotoğraf 02</div>
+<div class="photo">Fotoğraf 03</div>
+<div class="photo">Fotoğraf 04</div>
+<div class="photo">Fotoğraf 05</div>
+<div class="photo">Fotoğraf 06</div>
+<div class="photo">Fotoğraf 07</div>
+<div class="photo">Fotoğraf 08</div>
+<div class="photo">Fotoğraf 09</div>
+<div class="photo">Fotoğraf 10</div>
+<div class="photo">Fotoğraf 11</div>
+<div class="photo">Fotoğraf 12</div>
+<div class="photo">Fotoğraf 13</div>
+<div class="photo">Fotoğraf 14</div>
+<div class="photo">Fotoğraf 15</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="letter">
+
+<h2>Sana Birkaç Kelime...</h2>
+
+<p>
+İyi ki hayatıma girdin Ezgi.
+Seninle birlikte geçen zaman bana bir şeyi çok net gösterdi:
+Bazı insanlar sadece hayatımıza girmez,
+<strong>hayatımızın bir parçası olur.</strong>
+</p>
+
+<br>
+
+<p>
+Seninle güldüğüm, konuştuğum, sustuğum,
+hatta hiçbir şey yapmadan yanında olduğum anların bile
+bende ayrı bir yeri var.
+</p>
+
+<br>
+
+<p class="highlight">
+İyi ki yollarımız kesişmiş.
+</p>
+
+</div>
+
+</section>
+
+
+<div class="final">
+
+<h2>Son olarak...</h2>
+
+<p>
+Bu site sadece birkaç fotoğraf ve birkaç kelimeden ibaret değil.
+<br>
+Bizim hikâyemiz bundan çok daha büyük.
+</p>
+
+<p class="highlight">
+Seni seviyorum Ezgi. ❤️
+</p>
+
+<div class="infinity">∞</div>
+
+</div>
+
+
+<script>
+
+const startDate = new Date("2024-10-07T00:00:00");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    let diff = now - startDate;
+
+    if(diff < 0) diff = 0;
+
+    const days = Math.floor(diff / 86400000);
+
+    const hours = Math.floor((diff % 86400000) / 3600000);
+
+    const minutes = Math.floor((diff % 3600000) / 60000);
+
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    document.getElementById("days").textContent = days;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+}
+
+updateCounter();
+
+setInterval(updateCounter,1000);
+
+</script>
+
+</body>
+  </html>
