@@ -557,9 +557,11 @@ async function loadPhotos(){
                 file.type === "file" &&
                 /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
             )
-            .sort((a,b) =>
-                a.name.localeCompare(b.name)
-            );
+            ..sort((a,b) => {
+    const dateA = a.name.match(/20\d{6}/)?.[0] || "99999999";
+    const dateB = b.name.match(/20\d{6}/)?.[0] || "99999999";
+    return dateA.localeCompare(dateB);
+});
 
         images.forEach((file,index)=>{
 
