@@ -2,192 +2,591 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ezgi ❤️ Yasin</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-background:#09080f;color:white;font-family:Arial;text-align:center;
+    background:#08070d;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
-section{padding:60px 15px;max-width:900px;margin:auto}
-h1{font-size:55px;margin:80px 0 25px;color:#ff6699}
-h2{font-size:32px;margin-bottom:20px}
-p{line-height:1.8;opacity:.75}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,80,140,.15),transparent 35%),
+    radial-gradient(circle at 80% 80%,rgba(100,100,255,.12),transparent 35%);
+    z-index:-1;
+}
+
+section{
+    max-width:950px;
+    margin:auto;
+    padding:75px 18px;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.small{
+    opacity:.6;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:clamp(48px,12vw,100px);
+    background:linear-gradient(135deg,#ff7aaa,#fff,#9da8ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:30px;
+}
+
+.subtitle{
+    max-width:600px;
+    line-height:1.8;
+    opacity:.75;
+}
+
+.date{
+    margin-top:25px;
+    opacity:.7;
+}
+
+.scroll{
+    margin-top:70px;
+    opacity:.5;
+}
+
+.section-title{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.section-text{
+    text-align:center;
+    line-height:1.9;
+    opacity:.75;
+    max-width:700px;
+    margin:auto;
+}
+
+.memory{
+    margin-top:35px;
+}
+
+.memory-card{
+    background:#15131d;
+    padding:30px;
+    border-radius:22px;
+    margin-bottom:20px;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+}
+
+.memory-card h3{
+    margin-bottom:15px;
+    color:#ff709f;
+}
+
+.memory-card p{
+    line-height:1.8;
+    opacity:.75;
+}
+
+/* FOTO GALERİ */
 .gallery{
-display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px
+    margin-top:35px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
 }
-.gallery img{
-width:100%;height:280px;object-fit:cover;border-radius:18px
+
+.photo{
+    overflow:hidden;
+    border-radius:20px;
+    background:#15131d;
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
 }
+
+.photo img{
+    display:block;
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.photo img:hover{
+    transform:scale(1.04);
+}
+
+/* SAYAÇ */
 .counter{
-display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px
+    text-align:center;
 }
-.box{
-background:#17151f;padding:20px;border-radius:15px;min-width:80px
+
+.counter-box{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
 }
-.box b{font-size:28px;display:block}
-.music{
-margin:40px auto;padding:35px 20px;background:#17151f;
-border-radius:25px;max-width:500px
+
+.count{
+    min-width:90px;
+    padding:20px 15px;
+    background:#15131d;
+    border-radius:18px;
 }
-button{
-border:0;border-radius:50px;padding:18px 35px;
-font-size:18px;font-weight:bold;background:#ff4f91;color:white;
-margin-top:20px;cursor:pointer
+
+.count strong{
+    display:block;
+    font-size:30px;
+    color:#ff709f;
+    margin-bottom:5px;
 }
-#status{margin-top:15px;opacity:.7}
+
+/* MÜZİK */
+.music-box{
+    max-width:500px;
+    margin:35px auto 0;
+    padding:35px 20px;
+    background:#15131d;
+    border-radius:25px;
+    text-align:center;
+}
+
+.music-button{
+    border:0;
+    outline:0;
+    background:linear-gradient(135deg,#ff4f91,#a66cff);
+    color:white;
+    padding:18px 30px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    margin-top:20px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(255,70,140,.25);
+}
+
+.music-button:active{
+    transform:scale(.96);
+}
+
+.music-status{
+    margin-top:18px;
+    opacity:.65;
+    font-size:14px;
+}
+
+audio{
+    width:100%;
+    margin-top:20px;
+}
+
+/* TELEFON */
+@media(max-width:600px){
+
+    section{
+        padding:60px 15px;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .photo img{
+        height:330px;
+    }
+
+    .count{
+        min-width:75px;
+    }
+
+    .count strong{
+        font-size:25px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<section>
-<h1>Ezgi & Yasin ❤️</h1>
+<!-- AÇILIŞ -->
+<section class="hero">
 
-<p>
-Bazı insanlar hayatımıza tesadüfen girer...<br>
-Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
-</p>
+    <div class="small">
+        BİR HİKÂYENİN BAŞLANGICI
+    </div>
 
-<p style="margin-top:20px">7 Ekim 2024 ❤️</p>
+    <h1>
+        Ezgi &amp; Yasin ❤️
+    </h1>
+
+    <p class="subtitle">
+        Bazı insanlar hayatımıza tesadüfen girer...<br>
+        Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
+    </p>
+
+    <div class="date">
+        7 Ekim 2024 • Bizim başlangıcımız
+    </div>
+
+    <div class="scroll">
+        ↓<br>
+        <small>Hikâyemize devam et</small>
+    </div>
+
 </section>
 
+
+<!-- HİKÂYE -->
 <section>
-<h2>Bizim Hikâyemiz</h2>
-<p>
-İlk günden bugüne kadar yaşadığımız bütün güzel anlar,
-küçük büyük tüm hatıralar burada.
-</p>
+
+    <h2 class="section-title">
+        Bizim Hikâyemiz
+    </h2>
+
+    <p class="section-text">
+        İlk günden bugüne kadar yaşadığımız küçük büyük
+        bütün anlar... Bazıları bir fotoğraf,
+        bazıları sadece ikimizin bildiği bir hatıra.
+        Ama hepsi bizim.
+    </p>
+
+    <div class="memory">
+
+        <div class="memory-card">
+            <h3>7 Ekim 2024 ❤️</h3>
+            <p>
+                Her şeyin başladığı gün.
+                O gün henüz bunun hayatımızdaki
+                en güzel başlangıçlardan biri olduğunu bilmiyorduk.
+            </p>
+        </div>
+
+        <div class="memory-card">
+            <h3>Birlikte Geçen Zaman ❤️</h3>
+            <p>
+                Birlikte güldük, birlikte gezdik,
+                bazen saçmaladık, bazen tartıştık.
+                Ama her seferinde yine birbirimizi seçtik.
+            </p>
+        </div>
+
+        <div class="memory-card">
+            <h3>Bugün ❤️</h3>
+            <p>
+                Ve hâlâ buradayız.
+                Geçmişteki bütün güzel anların
+                yanına yenilerini eklemeye devam ediyoruz.
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
+
+<!-- FOTOĞRAFLAR -->
 <section>
-<h2>Bizden Kareler 📸</h2>
 
-<div class="gallery">
+    <h2 class="section-title">
+        Bizden Kareler 📸
+    </h2>
 
-<img src="./99d0795a9bdd34deb61dd7c268f71843.jpg">
-<img src="./IMG-20241007-WA0041.jpg">
-<img src="./IMG-20241009-WA0083.jpg">
-<img src="./IMG-20241025-WA0002.jpg">
-<img src="./IMG-20241112-WA0000.jpg">
-<img src="./IMG-20241112-WA0002.jpg">
-<img src="./IMG-20241118-WA0019.jpg">
-<img src="./IMG-20241209-WA0006.jpg">
-<img src="./IMG_20241122_123900.jpg">
-<img src="./IMG-20250223-WA0005.jpg">
-<img src="./IMG-20250223-WA0018.jpg">
-<img src="./IMG-20250223-WA0020.jpg">
-<img src="./IMG-20250223-WA0023.jpg">
-<img src="./IMG_20250114_184542.jpg">
-<img src="./IMG_20250114_184613.jpg">
-<img src="./IMG-20250504-WA0004.jpg">
-<img src="./IMG-20250514-WA0006.jpg">
-<img src="./IMG-20250514-WA0011.jpg">
-<img src="./IMG_20250521_174508.jpg">
-<img src="./IMG-20250628-WA0007.jpg">
-<img src="./IMG-20250714-WA0029.jpg">
-<img src="./IMG_20250714_204618.jpg">
-<img src="./IMG_20250725_165729.jpg">
-<img src="./IMG_20250725_174714.jpg">
-<img src="./IMG_20250910_182251.jpg">
-<img src="./IMG-20251025-WA0002.jpg">
-<img src="./IMG-20251231-WA0001.jpg">
-<img src="./IMG-20260705-WA0012.jpg">
-<img src="./IMG_20260214_141801.jpg">
-<img src="./IMG_20260705_113506.jpg">
+    <p class="section-text">
+        Eskiden yeniye...
+        Çünkü güzel şeyleri en başından anlatmak gerekir.
+    </p>
 
-</div>
+    <div class="gallery" id="gallery"></div>
+
 </section>
 
-<section>
-<h2>Ne Kadar Oldu? ⏳</h2>
 
-<div class="counter">
-<div class="box"><b id="days">0</b>Gün</div>
-<div class="box"><b id="hours">00</b>Saat</div>
-<div class="box"><b id="minutes">00</b>Dakika</div>
-<div class="box"><b id="seconds">00</b>Saniye</div>
-</div>
+<!-- SAYAÇ -->
+<section class="counter">
+
+    <h2 class="section-title">
+        Ne Kadar Oldu? ⏳
+    </h2>
+
+    <p class="section-text">
+        7 Ekim 2024'ten beri geçen zaman.
+    </p>
+
+    <div class="counter-box">
+
+        <div class="count">
+            <strong id="days">0</strong>
+            Gün
+        </div>
+
+        <div class="count">
+            <strong id="hours">00</strong>
+            Saat
+        </div>
+
+        <div class="count">
+            <strong id="minutes">00</strong>
+            Dakika
+        </div>
+
+        <div class="count">
+            <strong id="seconds">00</strong>
+            Saniye
+        </div>
+
+    </div>
+
 </section>
 
+
+<!-- MÜZİK -->
 <section>
-<div class="music">
 
-<h2>Bizim Şarkımız 🎵</h2>
+    <h2 class="section-title">
+        Bizim Şarkımız 🎵
+    </h2>
 
-<button onclick="muzikAc()" id="musicButton">
-🎵 ŞARKIYI ÇAL
-</button>
+    <p class="section-text">
+        Bu şarkı da bizim için. ❤️
+    </p>
 
-<p id="status">Şarkıyı başlatmak için butona bas ❤️</p>
+    <div class="music-box">
 
-<audio id="music" preload="auto">
-<source src="./music.mp3" type="audio/mpeg">
-</audio>
+        <button
+            class="music-button"
+            id="musicButton"
+            onclick="toggleMusic()">
+            🎵 ŞARKIYI ÇAL
+        </button>
 
-</div>
+        <div class="music-status" id="musicStatus">
+            Şarkıyı başlatmak için butona bas ❤️
+        </div>
+
+        <audio id="music" preload="auto">
+            <source src="./music.mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+
 </section>
+
 
 <script>
 
-const music=document.getElementById("music");
-const button=document.getElementById("musicButton");
-const status=document.getElementById("status");
+/* =========================
+   FOTOĞRAFLAR
+========================= */
 
-function muzikAc(){
+const photos = [
 
-if(music.paused){
+    "99d0795a9bdd34deb61dd7c268f71843.jpg",
 
-music.play().then(function(){
+    "IMG-20241007-WA0041.jpg",
+    "IMG-20241009-WA0083.jpg",
+    "IMG-20241025-WA0002.jpg",
 
-button.innerHTML="⏸️ ŞARKIYI DURDUR";
-status.innerHTML="Şarkımız çalıyor ❤️";
+    "IMG-20241112-WA0000.jpg",
+    "IMG-20241112-WA0002.jpg",
+    "IMG-20241118-WA0019.jpg",
+    "IMG_20241122_123900.jpg",
 
-}).catch(function(){
+    "IMG-20241209-WA0006.jpg",
 
-status.innerHTML="Şarkı yüklenemedi. music.mp3 dosyasını kontrol et.";
+    "IMG_20250114_184542.jpg",
+    "IMG_20250114_184613.jpg",
+
+    "IMG-20250223-WA0005.jpg",
+    "IMG-20250223-WA0018.jpg",
+    "IMG-20250223-WA0020.jpg",
+    "IMG-20250223-WA0023.jpg",
+
+    "IMG-20250504-WA0004.jpeg",
+    "IMG-20250514-WA0006.jpg",
+    "IMG-20250514-WA0011.jpg",
+    "IMG_20250521_174508.jpg",
+
+    "IMG-20250628-WA0007.jpg",
+
+    "IMG_20250710_173937_244.webp",
+    "IMG-20250714-WA0029.jpg",
+    "IMG_20250714_204618.jpg",
+    "IMG_20250725_165729.jpg",
+    "IMG_20250725_174714.jpg",
+
+    "IMG-20250927-WA0010.jpg",
+    "IMG_20250910_182251.jpg",
+
+    "IMG-20251025-WA0002.jpg",
+
+    "IMG-20251231-WA0001.jpg",
+
+    "IMG_20260214_141801.jpg",
+
+    "IMG-20260705-WA0012.jpg",
+    "IMG_20260705_113506.jpg",
+
+    "b8adda0b74af02e445fc67119bdca470.jpg"
+];
+
+
+const gallery = document.getElementById("gallery");
+
+
+photos.forEach(function(file){
+
+    const box = document.createElement("div");
+    box.className = "photo";
+
+    const img = document.createElement("img");
+
+    img.src = "./" + file;
+
+    img.alt = "Ezgi ve Yasin ❤️";
+
+    img.loading = "lazy";
+
+    box.appendChild(img);
+
+    gallery.appendChild(box);
 
 });
 
-}else{
 
-music.pause();
-button.innerHTML="🎵 ŞARKIYI ÇAL";
-status.innerHTML="Şarkı durduruldu.";
+/* =========================
+   SAYAÇ
+========================= */
+
+const startDate = new Date("2024-10-07T00:00:00");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    let diff = now.getTime() - startDate.getTime();
+
+    if(diff < 0){
+        diff = 0;
+    }
+
+    const days = Math.floor(diff / 86400000);
+
+    const hours = Math.floor(
+        (diff % 86400000) / 3600000
+    );
+
+    const minutes = Math.floor(
+        (diff % 3600000) / 60000
+    );
+
+    const seconds = Math.floor(
+        (diff % 60000) / 1000
+    );
+
+    document.getElementById("days").textContent = days;
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2,"0");
+}
+
+updateCounter();
+
+setInterval(updateCounter,1000);
+
+
+/* =========================
+   MÜZİK
+========================= */
+
+const music = document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play()
+        .then(function(){
+
+            musicButton.textContent =
+                "⏸️ ŞARKIYI DURDUR";
+
+            musicStatus.textContent =
+                "Şarkımız çalıyor ❤️";
+
+        })
+        .catch(function(){
+
+            musicStatus.textContent =
+                "Şarkı yüklenemedi. Lütfen sayfayı yenileyip tekrar dene.";
+
+        });
+
+    }else{
+
+        music.pause();
+
+        musicButton.textContent =
+            "🎵 ŞARKIYI ÇAL";
+
+        musicStatus.textContent =
+            "Şarkı duraklatıldı.";
+
+    }
 
 }
 
-}
 
 music.addEventListener("ended",function(){
 
-button.innerHTML="🎵 ŞARKIYI ÇAL";
-status.innerHTML="Şarkı bitti ❤️";
+    musicButton.textContent =
+        "🎵 ŞARKIYI ÇAL";
+
+    musicStatus.textContent =
+        "Şarkı bitti ❤️";
 
 });
-
-
-const baslangic=new Date("2024-10-07T00:00:00");
-
-function sayac(){
-
-let fark=new Date()-baslangic;
-
-let gun=Math.floor(fark/86400000);
-let saat=Math.floor(fark%86400000/3600000);
-let dakika=Math.floor(fark%3600000/60000);
-let saniye=Math.floor(fark%60000/1000);
-
-document.getElementById("days").textContent=gun;
-document.getElementById("hours").textContent=String(saat).padStart(2,"0");
-document.getElementById("minutes").textContent=String(dakika).padStart(2,"0");
-document.getElementById("seconds").textContent=String(saniye).padStart(2,"0");
-
-}
-
-sayac();
-setInterval(sayac,1000);
 
 </script>
 
