@@ -18,41 +18,61 @@ html{
 }
 
 body{
-    background:#08070d;
+    background:#09090d;
     color:white;
     font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-body::before{
-    content:"";
+.background{
     position:fixed;
     inset:0;
-    background:
-        radial-gradient(circle at 20% 20%,rgba(255,50,130,.18),transparent 35%),
-        radial-gradient(circle at 80% 70%,rgba(120,50,255,.16),transparent 35%);
-    pointer-events:none;
     z-index:-2;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,70,120,.16),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(160,80,255,.12),transparent 30%),
+    #09090d;
 }
 
-/* YILDIZLAR */
 .stars{
     position:fixed;
     inset:0;
     z-index:-1;
     pointer-events:none;
+    background-image:
+    radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:80px 80px;
+    opacity:.12;
 }
 
-.star{
-    position:absolute;
-    width:2px;
-    height:2px;
-    background:white;
-    border-radius:50%;
-    opacity:.35;
+/* KALPLER */
+
+.heart{
+    position:fixed;
+    bottom:-30px;
+    color:#fff;
+    font-size:20px;
+    animation:floatHeart linear forwards;
+    pointer-events:none;
+    z-index:5;
 }
 
-/* ANA BÖLÜM */
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) scale(.5) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.4) rotate(35deg);
+        opacity:0;
+    }
+}
+
+/* AÇILIŞ */
+
 .hero{
     min-height:100vh;
     display:flex;
@@ -60,101 +80,89 @@ body::before{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px 20px;
+    padding:30px 20px;
 }
 
-.subtitle{
+.small{
     font-size:14px;
-    letter-spacing:7px;
+    letter-spacing:4px;
+    text-transform:uppercase;
     opacity:.65;
-    margin-bottom:35px;
+    margin-bottom:20px;
 }
 
-.hero h1{
-    font-size:clamp(55px,15vw,110px);
-    line-height:.9;
-    margin-bottom:35px;
-    background:linear-gradient(135deg,#ff7eae,#ff4f91,#c96cff);
+h1{
+    font-size:clamp(48px,15vw,100px);
+    line-height:1;
+    font-weight:700;
+    background:linear-gradient(135deg,#fff,#ff719c,#c58cff);
     -webkit-background-clip:text;
     background-clip:text;
     color:transparent;
+    animation:titleGlow 3s infinite alternate;
 }
 
-.hero h1 span{
-    display:block;
+@keyframes titleGlow{
+    from{
+        filter:drop-shadow(0 0 5px rgba(255,80,140,.2));
+    }
+    to{
+        filter:drop-shadow(0 0 25px rgba(255,80,140,.55));
+    }
 }
 
-.hero p{
-    max-width:700px;
-    font-size:clamp(18px,4vw,28px);
-    line-height:1.6;
+.subtitle{
+    margin-top:25px;
+    max-width:600px;
+    font-size:19px;
+    line-height:1.7;
     opacity:.8;
 }
 
-.date-badge{
-    margin-top:40px;
-    padding:16px 28px;
-    border:1px solid rgba(255,255,255,.2);
+.date{
+    margin-top:30px;
+    padding:12px 22px;
+    border:1px solid rgba(255,255,255,.15);
     border-radius:50px;
     background:rgba(255,255,255,.04);
     backdrop-filter:blur(10px);
-    font-size:16px;
 }
 
 .scroll{
-    margin-top:90px;
+    margin-top:70px;
     opacity:.5;
-    font-size:14px;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(12px)}
 }
 
 /* BÖLÜMLER */
+
 section{
-    padding:100px 20px;
-    max-width:1100px;
+    padding:90px 20px;
+    max-width:1000px;
     margin:auto;
 }
 
 .section-title{
     text-align:center;
-    font-size:clamp(35px,8vw,55px);
-    margin-bottom:20px;
+    font-size:36px;
+    margin-bottom:18px;
 }
 
 .section-text{
-    max-width:700px;
-    margin:0 auto 50px;
     text-align:center;
-    font-size:20px;
+    max-width:650px;
+    margin:0 auto 50px;
     line-height:1.8;
     opacity:.7;
 }
 
-/* ANILAR */
-.memories{
-    display:grid;
-    gap:25px;
-}
+/* FOTOĞRAFLAR */
 
-.memory{
-    padding:30px;
-    border-radius:25px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
-    backdrop-filter:blur(10px);
-}
-
-.memory h3{
-    color:#ff83ad;
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.memory p{
-    line-height:1.8;
-    opacity:.75;
-}
-
-/* GALERİ */
 .gallery{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -166,7 +174,7 @@ section{
     overflow:hidden;
     border-radius:20px;
     background:#15151c;
-    min-height:180px;
+    min-height:220px;
     box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
@@ -174,156 +182,172 @@ section{
     width:100%;
     height:100%;
     min-height:220px;
-    display:block;
     object-fit:cover;
-    transition:transform .5s ease;
+    display:block;
+    transition:transform .7s ease;
 }
 
 .photo:hover img{
-    transform:scale(1.05);
+    transform:scale(1.07);
+}
+
+.photo:nth-child(3n){
+    grid-column:span 2;
+}
+
+/* HİKAYE */
+
+.timeline{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(transparent,#ff5f91,transparent);
+}
+
+.memory{
+    width:50%;
+    padding:25px;
+    position:relative;
+}
+
+.memory:nth-child(odd){
+    text-align:right;
+}
+
+.memory:nth-child(even){
+    margin-left:50%;
+}
+
+.memory-card{
+    display:inline-block;
+    max-width:400px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(12px);
+}
+
+.memory h3{
+    margin-bottom:10px;
+    color:#ff719c;
+}
+
+.memory p{
+    line-height:1.7;
+    opacity:.75;
 }
 
 /* SAYAÇ */
+
 .counter{
     text-align:center;
+    padding:70px 20px;
 }
 
 .counter-box{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
+    display:flex;
+    justify-content:center;
     gap:15px;
-    max-width:800px;
-    margin:40px auto;
+    flex-wrap:wrap;
+    margin-top:35px;
 }
 
 .count{
-    padding:30px 10px;
-    border-radius:25px;
+    width:110px;
+    padding:25px 10px;
+    border-radius:18px;
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.1);
 }
 
 .count strong{
     display:block;
-    font-size:45px;
+    font-size:32px;
 }
 
 .count span{
     display:block;
-    margin-top:8px;
-    opacity:.55;
+    margin-top:7px;
+    opacity:.5;
+    font-size:12px;
 }
 
 /* SON */
+
 .final{
-    min-height:70vh;
+    min-height:80vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
+    padding:40px 20px;
 }
 
 .final h2{
-    font-size:clamp(35px,8vw,60px);
-    margin-bottom:30px;
+    font-size:clamp(38px,10vw,70px);
+    margin-bottom:25px;
 }
 
 .final p{
-    max-width:700px;
-    font-size:20px;
-    line-height:2;
-    opacity:.75;
+    max-width:600px;
+    line-height:1.9;
+    opacity:.7;
+    font-size:18px;
 }
 
 .signature{
-    margin-top:40px;
-    color:#ff82ad;
+    margin-top:35px;
     font-size:25px;
-}
-
-/* KALPLER */
-.heart{
-    position:fixed;
-    bottom:-30px;
-    pointer-events:none;
-    animation:heartUp linear forwards;
-    z-index:10;
-    opacity:.7;
-}
-
-@keyframes heartUp{
-    0%{
-        transform:translateY(0) scale(.7);
-        opacity:0;
-    }
-    15%{
-        opacity:.7;
-    }
-    100%{
-        transform:translateY(-110vh) translateX(var(--move)) scale(1.2);
-        opacity:0;
-    }
-}
-
-/* MÜZİK */
-.music-button{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(20,18,30,.8);
-    color:white;
-    font-size:25px;
-    cursor:pointer;
-    z-index:50;
-    backdrop-filter:blur(10px);
+    color:#ff719c;
 }
 
 /* MOBİL */
+
 @media(max-width:600px){
 
     section{
-        padding:80px 16px;
-    }
-
-    .hero{
-        padding:30px 20px;
-    }
-
-    .subtitle{
-        letter-spacing:4px;
-        font-size:12px;
-    }
-
-    .hero h1{
-        font-size:65px;
-    }
-
-    .hero p{
-        font-size:19px;
+        padding:70px 16px;
     }
 
     .gallery{
         grid-template-columns:1fr;
     }
 
+    .photo:nth-child(3n){
+        grid-column:span 1;
+    }
+
     .photo img{
         min-height:300px;
     }
 
-    .counter-box{
-        grid-template-columns:repeat(2,1fr);
+    .timeline::before{
+        left:8px;
     }
 
-    .count strong{
-        font-size:38px;
+    .memory,
+    .memory:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding-left:30px;
+        text-align:left;
     }
 
-    .section-title{
-        font-size:40px;
+    .memory-card{
+        width:100%;
+    }
+
+    .count{
+        width:100px;
     }
 }
 </style>
@@ -331,83 +355,106 @@ section{
 
 <body>
 
-<div class="stars" id="stars"></div>
+<div class="background"></div>
+<div class="stars"></div>
 
-<!-- GİRİŞ -->
-<section class="hero">
+<!-- AÇILIŞ -->
 
-    <div class="subtitle">
-        BİR HİKÂYENİN BAŞLANGICI
+<header class="hero">
+
+    <div class="small">
+        Bir hikâyenin başlangıcı
     </div>
 
     <h1>
-        <span>Ezgi</span>
-        <span>& Yasin ❤️</span>
+        Ezgi<br>&amp; Yasin ❤️
     </h1>
 
-    <p>
+    <p class="subtitle">
         Bazı insanlar hayatımıza tesadüfen girer...
-        <br>
         Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
     </p>
 
-    <div class="date-badge">
+    <div class="date">
         7 Ekim 2024 • Bizim başlangıcımız
     </div>
 
     <div class="scroll">
         ↓<br>
-        hikâyemize devam et
+        <small>hikâyemize devam et</small>
     </div>
 
-</section>
+</header>
 
-<!-- ANILAR -->
+
+<!-- HİKAYE -->
+
 <section>
 
     <h2 class="section-title">
-        Bizim Hikâyemiz ❤️
+        Bizim Hikâyemiz
     </h2>
 
     <p class="section-text">
-        Bazı anlar vardır, üzerinden zaman geçse bile
-        ilk günkü gibi hatırlanır.
+        İlk günden bugüne kadar yaşadığımız küçük büyük
+        bütün anlar... Bazıları bir fotoğraf,
+        bazıları sadece ikimizin bildiği bir hatıra.
+        Ama hepsi bizim.
     </p>
 
-    <div class="memories">
+    <div class="timeline">
 
         <div class="memory">
-            <h3>7 Ekim 2024 ❤️</h3>
-            <p>
-                Her şeyin başladığı gün.
-                O gün henüz hayatımızdaki en güzel
-                başlangıçlardan biri olduğunu bilmiyorduk.
-            </p>
+            <div class="memory-card">
+
+                <h3>7 Ekim 2024 ❤️</h3>
+
+                <p>
+                    Her şeyin başladığı gün.
+                    O gün henüz bunun hayatımızdaki
+                    en güzel başlangıçlardan biri olduğunu bilmiyorduk.
+                </p>
+
+            </div>
         </div>
 
-        <div class="memory">
-            <h3>Sonra... ❤️</h3>
-            <p>
-                Birlikte güldük, birlikte gezdik,
-                bazen saçmaladık, bazen tartıştık.
-                Ama her seferinde yine birbirimizi seçtik.
-            </p>
-        </div>
 
         <div class="memory">
-            <h3>Bugün ❤️</h3>
-            <p>
-                Ve hâlâ buradayız.
-                Geçmişteki bütün güzel anların yanına
-                yenilerini eklemeye devam ediyoruz.
-            </p>
+            <div class="memory-card">
+
+                <h3>Sonra...</h3>
+
+                <p>
+                    Birlikte güldük, birlikte gezdik,
+                    bazen saçmaladık, bazen tartıştık.
+                    Ama her seferinde yine birbirimizi seçtik.
+                </p>
+
+            </div>
+        </div>
+
+
+        <div class="memory">
+            <div class="memory-card">
+
+                <h3>Bugün ❤️</h3>
+
+                <p>
+                    Ve hâlâ buradayız.
+                    Geçmişteki bütün güzel anıların
+                    yanına yenilerini eklemeye devam ediyoruz.
+                </p>
+
+            </div>
         </div>
 
     </div>
 
 </section>
 
+
 <!-- FOTOĞRAFLAR -->
+
 <section>
 
     <h2 class="section-title">
@@ -415,15 +462,151 @@ section{
     </h2>
 
     <p class="section-text">
-        Eskiden yeniye... Çünkü güzel şeyleri
-        en başından anlatmak gerekir.
+        Eskiden yeniye...
+        Çünkü güzel şeyleri en başından anlatmak gerekir.
     </p>
 
-    <div id="gallery" class="gallery"></div>
+    <div id="gallery" class="gallery">
+
+        <div class="photo">
+            <img src="./99d0795a9bdd34deb61dd7c268f71843.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241007-WA0041.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241009-WA0083.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241025-WA0002.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241112-WA0000.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241112-WA0002.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241118-WA0019.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20241209-WA0006.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20241122_123900.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250223-WA0005.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250223-WA0018.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250223-WA0020.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250223-WA0023.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250114_184542.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250114_184613.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250504-WA0004.jpeg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250514-WA0006.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250514-WA0011.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250521_174508.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250628-WA0007.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250714-WA0029.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250710_173937_244.webp">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250714_204618.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250725_165729.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250725_174714.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20250927-WA0010.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20250910_182251.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20251025-WA0002.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20251231-WA0001.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20260214_141801.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG-20260705-WA0012.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./IMG_20260705_113506.jpg">
+        </div>
+
+        <div class="photo">
+            <img src="./b8adda0b74af02e445fc67119bdca470.jpg">
+        </div>
+
+    </div>
 
 </section>
 
+
 <!-- SAYAÇ -->
+
 <section class="counter">
 
     <h2 class="section-title">
@@ -460,7 +643,9 @@ section{
 
 </section>
 
+
 <!-- SON -->
+
 <section class="final">
 
     <div>
@@ -472,118 +657,34 @@ section{
         <p>
             Hayatımdaki en güzel tesadüflerden biri değil,
             en güzel seçimimsin.
+
             <br><br>
+
             Geçmişteki bütün fotoğraflarımızı seviyorum.
-            Ama en çok da henüz çekilmemiş fotoğrafları
-            merak ediyorum.
+            Ama en çok da henüz çekmediğimiz
+            fotoğrafları merak ediyorum.
+
             <br><br>
+
             Çünkü bizim hikâyemiz burada bitmiyor.
         </p>
 
         <div class="signature">
-            Ezgi & Yasin
+            Ezgi &amp; Yasin
         </div>
 
     </div>
 
 </section>
 
-<!-- MÜZİK -->
-<audio id="music" loop></audio>
-
-<button class="music-button" id="musicButton">
-    🎵
-</button>
 
 <script>
 
-/* YILDIZLAR */
-const stars = document.getElementById("stars");
+/* =========================
+   SAYAÇ
+========================= */
 
-for(let i=0;i<100;i++){
-
-    const star = document.createElement("div");
-
-    star.className = "star";
-
-    star.style.left = Math.random()*100 + "%";
-    star.style.top = Math.random()*100 + "%";
-
-    stars.appendChild(star);
-}
-
-
-/* FOTOĞRAFLARI GITHUB'DAN BUL */
-async function loadPhotos(){
-
-    const gallery = document.getElementById("gallery");
-
-    try{
-
-        const response = await fetch(
-            "https://api.github.com/repos/dukyasin-coder/ezgi-yasin/contents/"
-        );
-
-        if(!response.ok){
-            throw new Error("GitHub bağlantısı başarısız");
-        }
-
-        const files = await response.json();
-
-        const images = files
-            .filter(file =>
-                file.type === "file" &&
-                /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
-            )
-            .sort((a,b) =>
-                a.name.localeCompare(b.name)
-            );
-
-        if(images.length === 0){
-
-            gallery.innerHTML =
-                "<p style='text-align:center;opacity:.6;grid-column:1/-1'>Fotoğraf bulunamadı.</p>";
-
-            return;
-        }
-
-        images.forEach((file,index)=>{
-
-            const box = document.createElement("div");
-
-            box.className = "photo";
-
-            const img = document.createElement("img");
-
-            img.src = file.download_url;
-
-            img.alt = "Ezgi & Yasin anısı " + (index+1);
-
-            img.loading = "lazy";
-
-            box.appendChild(img);
-
-            gallery.appendChild(box);
-
-        });
-
-        console.log(images.length + " fotoğraf yüklendi.");
-
-    }catch(error){
-
-        console.error(error);
-
-        gallery.innerHTML =
-            "<p style='text-align:center;opacity:.6;grid-column:1/-1'>Fotoğraflar yüklenirken bir sorun oluştu.</p>";
-    }
-}
-
-loadPhotos();
-
-
-/* SAYAÇ */
-
-const startDate = new Date("2024-10-07T00:00:00");
+const startDate = new Date(2024, 9, 7, 0, 0, 0);
 
 function updateCounter(){
 
@@ -595,9 +696,7 @@ function updateCounter(){
         diff = 0;
     }
 
-    const days = Math.floor(
-        diff / 86400000
-    );
+    const days = Math.floor(diff / 86400000);
 
     const hours = Math.floor(
         (diff % 86400000) / 3600000
@@ -611,8 +710,7 @@ function updateCounter(){
         (diff % 60000) / 1000
     );
 
-    document.getElementById("days").textContent =
-        days;
+    document.getElementById("days").textContent = days;
 
     document.getElementById("hours").textContent =
         String(hours).padStart(2,"0");
@@ -629,7 +727,9 @@ updateCounter();
 setInterval(updateCounter,1000);
 
 
-/* KALPLER */
+/* =========================
+   KALP ANİMASYONU
+========================= */
 
 function createHeart(){
 
@@ -637,106 +737,27 @@ function createHeart(){
 
     heart.className = "heart";
 
-    heart.innerHTML = "♥";
+    heart.innerHTML = "❤";
 
     heart.style.left =
-        Math.random()*100 + "vw";
-
-    heart.style.fontSize =
-        (12 + Math.random()*18) + "px";
-
-    heart.style.setProperty(
-        "--move",
-        (-80 + Math.random()*160) + "px"
-    );
+        Math.random() * 100 + "vw";
 
     heart.style.animationDuration =
-        (5 + Math.random()*5) + "s";
+        (5 + Math.random() * 6) + "s";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(function(){
+
         heart.remove();
-    },10000);
+
+    },12000);
 }
 
 setInterval(createHeart,900);
-
-
-/* MÜZİK */
-
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
-
-let musicLoaded = false;
-
-async function loadMusic(){
-
-    try{
-
-        const response = await fetch(
-            "https://api.github.com/repos/dukyasin-coder/ezgi-yasin/contents/"
-        );
-
-        if(!response.ok) return;
-
-        const files = await response.json();
-
-        const audioFile = files.find(file =>
-            file.type === "file" &&
-            /\.(mp3|wav|ogg|m4a)$/i.test(file.name)
-        );
-
-        if(audioFile){
-
-            music.src = audioFile.download_url;
-
-            musicLoaded = true;
-
-        }
-
-    }catch(error){
-
-        console.log("Müzik bulunamadı.");
-
-    }
-}
-
-loadMusic();
-
-
-musicButton.onclick = async function(){
-
-    if(!musicLoaded){
-
-        alert("GitHub'da müzik dosyası bulunamadı.");
-
-        return;
-    }
-
-    if(music.paused){
-
-        try{
-
-            await music.play();
-
-            musicButton.textContent = "⏸️";
-
-        }catch(error){
-
-            console.log(error);
-
-        }
-
-    }else{
-
-        music.pause();
-
-        musicButton.textContent = "🎵";
-
-    }
-
-};
 
 </script>
 
