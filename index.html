@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ezgi & Yasin ❤️</title>
 
 <style>
@@ -17,23 +18,59 @@ html{
 }
 
 body{
-    background:#080808;
-    color:#fff;
+    background:#09090d;
+    color:white;
     font-family:Arial,Helvetica,sans-serif;
     overflow-x:hidden;
 }
 
-body::before{
-    content:"";
+/* ARKA PLAN */
+.background{
     position:fixed;
     inset:0;
+    z-index:-2;
     background:
-    radial-gradient(circle at 20% 20%,rgba(255,70,100,.08),transparent 30%),
-    radial-gradient(circle at 80% 70%,rgba(255,70,100,.06),transparent 30%);
-    pointer-events:none;
-    z-index:-1;
+    radial-gradient(circle at 20% 20%,rgba(255,70,120,.16),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(160,80,255,.12),transparent 30%),
+    #09090d;
 }
 
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background-image:
+    radial-gradient(circle,#fff 1px,transparent 1px);
+    background-size:80px 80px;
+    opacity:.12;
+}
+
+/* KALPLER */
+.heart{
+    position:fixed;
+    bottom:-30px;
+    font-size:20px;
+    animation:floatHeart linear forwards;
+    pointer-events:none;
+    z-index:5;
+}
+
+@keyframes floatHeart{
+    0%{
+        transform:translateY(0) scale(.5) rotate(0deg);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-110vh) scale(1.4) rotate(35deg);
+        opacity:0;
+    }
+}
+
+/* HERO */
 .hero{
     min-height:100vh;
     display:flex;
@@ -41,245 +78,289 @@ body::before{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:30px;
-    position:relative;
-    overflow:hidden;
+    padding:30px 20px;
 }
 
-.heart{
-    position:absolute;
-    color:#ff5c76;
-    opacity:.55;
-    animation:float 7s linear infinite;
-    font-size:20px;
-}
-
-.heart:nth-child(1){left:10%;animation-delay:0s}
-.heart:nth-child(2){left:25%;animation-delay:2s}
-.heart:nth-child(3){left:70%;animation-delay:1s}
-.heart:nth-child(4){left:88%;animation-delay:4s}
-.heart:nth-child(5){left:50%;animation-delay:3s}
-
-@keyframes float{
-    from{
-        transform:translateY(110vh) scale(.5);
-        opacity:0;
-    }
-    30%{opacity:.6}
-    to{
-        transform:translateY(-20vh) scale(1.2);
-        opacity:0;
-    }
-}
-
-.hero h1{
-    font-size:clamp(55px,15vw,110px);
-    font-weight:300;
+.small{
+    font-size:14px;
     letter-spacing:4px;
-    background:linear-gradient(90deg,#fff,#ff758c,#fff);
-    background-size:200%;
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:shine 4s linear infinite;
-}
-
-@keyframes shine{
-    to{background-position:200%}
-}
-
-.hero p{
-    margin-top:20px;
-    color:#aaa;
-    font-size:17px;
-}
-
-.date{
-    margin-top:10px;
-    color:#ff7188!important;
-}
-
-.scroll{
-    position:absolute;
-    bottom:30px;
-    font-size:25px;
-    animation:bounce 2s infinite;
-    color:#ff7188;
-}
-
-@keyframes bounce{
-    50%{transform:translateY(10px)}
-}
-
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:90px 22px;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:45px;
-}
-
-.title h2{
-    font-size:32px;
-    font-weight:400;
-}
-
-.title span{
-    display:block;
-    margin:12px auto;
-    width:45px;
-    height:2px;
-    background:#ff657d;
-}
-
-.counter{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px;
-    background:#111;
-    border:1px solid #222;
-    border-radius:20px;
-    padding:25px 10px;
-    text-align:center;
-}
-
-.counter strong{
-    display:block;
-    font-size:30px;
-    color:#ff7188;
-}
-
-.counter small{
-    color:#888;
-}
-
-.story{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-    align-items:center;
-}
-
-.story-text h2{
-    font-size:35px;
-    font-weight:400;
+    text-transform:uppercase;
+    opacity:.65;
     margin-bottom:20px;
 }
 
-.story-text p{
-    color:#aaa;
-    line-height:1.9;
-    font-size:16px;
+h1{
+    font-size:clamp(48px,15vw,100px);
+    line-height:1;
+    font-weight:700;
+    background:linear-gradient(135deg,#fff,#ff719c,#c58cff);
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:titleGlow 3s infinite alternate;
 }
 
-.story-photo{
-    height:330px;
-    border-radius:25px;
-    background:linear-gradient(135deg,#191919,#302027);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#555;
-    border:1px solid #292929;
+@keyframes titleGlow{
+    from{
+        filter:drop-shadow(0 0 5px rgba(255,80,140,.2));
+    }
+    to{
+        filter:drop-shadow(0 0 25px rgba(255,80,140,.55));
+    }
 }
 
+.subtitle{
+    margin-top:25px;
+    max-width:600px;
+    font-size:19px;
+    line-height:1.7;
+    opacity:.8;
+}
+
+.date{
+    margin-top:30px;
+    padding:12px 22px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:50px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(10px);
+}
+
+.scroll{
+    margin-top:70px;
+    opacity:.5;
+    animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(12px)}
+}
+
+/* BÖLÜMLER */
+section{
+    padding:90px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:18px;
+}
+
+.section-text{
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 50px;
+    line-height:1.8;
+    opacity:.7;
+}
+
+/* FOTO GALERİ */
 .gallery{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
 }
 
 .photo{
-    aspect-ratio:1;
-    border-radius:15px;
-    background:linear-gradient(135deg,#171717,#282025);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#555;
+    position:relative;
     overflow:hidden;
-    border:1px solid #222;
-    transition:.3s;
-}
-
-.photo:hover{
-    transform:scale(1.03);
-    border-color:#ff657d;
+    border-radius:20px;
+    background:#15151c;
+    min-height:180px;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .photo img{
     width:100%;
     height:100%;
+    min-height:220px;
     object-fit:cover;
+    display:block;
+    transition:transform .7s ease;
 }
 
-.letter{
-    background:#111;
-    border:1px solid #252525;
-    border-radius:25px;
-    padding:45px 30px;
+.photo:hover img{
+    transform:scale(1.07);
+}
+
+.photo:nth-child(3n){
+    grid-column:span 2;
+}
+
+.photo::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.4),transparent 50%);
+    pointer-events:none;
+}
+
+/* ZAMAN ÇİZGİSİ */
+.timeline{
+    position:relative;
+    margin-top:60px;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(transparent,#ff5f91,transparent);
+}
+
+.memory{
+    width:50%;
+    padding:25px;
+    position:relative;
+}
+
+.memory:nth-child(odd){
+    text-align:right;
+}
+
+.memory:nth-child(even){
+    margin-left:50%;
+}
+
+.memory-card{
+    display:inline-block;
+    max-width:400px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(12px);
+}
+
+.memory h3{
+    margin-bottom:10px;
+    color:#ff719c;
+}
+
+.memory p{
+    line-height:1.7;
+    opacity:.75;
+}
+
+/* SAYAC */
+.counter{
     text-align:center;
+    padding:70px 20px;
 }
 
-.letter h2{
-    font-weight:400;
-    font-size:32px;
-    margin-bottom:25px;
+.counter-box{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:35px;
 }
 
-.letter p{
-    max-width:700px;
-    margin:auto;
-    color:#aaa;
-    line-height:2;
+.count{
+    width:90px;
+    padding:20px 10px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
 }
 
-.highlight{
-    color:#ff7188;
+.count strong{
+    display:block;
+    font-size:27px;
 }
 
+.count span{
+    display:block;
+    margin-top:5px;
+    opacity:.5;
+    font-size:12px;
+}
+
+/* SON */
 .final{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:110px 25px;
-    background:
-    radial-gradient(circle,#291218 0%,#080808 65%);
+    padding:40px 20px;
 }
 
 .final h2{
-    font-size:40px;
-    font-weight:300;
+    font-size:clamp(38px,10vw,70px);
+    margin-bottom:25px;
 }
 
 .final p{
-    color:#aaa;
-    margin-top:20px;
-    line-height:1.8;
+    max-width:600px;
+    line-height:1.9;
+    opacity:.7;
+    font-size:18px;
 }
 
-.infinity{
-    font-size:45px;
-    color:#ff7188;
-    margin-top:25px;
+.signature{
+    margin-top:35px;
+    font-size:25px;
+    color:#ff719c;
 }
 
-@media(max-width:650px){
-    .counter{
-        grid-template-columns:repeat(2,1fr);
-        gap:25px 5px;
-    }
+/* MÜZİK */
+.music{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    z-index:20;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(20,20,30,.75);
+    backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+}
 
-    .story{
-        grid-template-columns:1fr;
+/* MOBİL */
+@media(max-width:600px){
+
+    section{
+        padding:70px 16px;
     }
 
     .gallery{
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:1fr;
     }
 
-    section{
-        padding:70px 18px;
+    .photo:nth-child(3n){
+        grid-column:span 1;
+    }
+
+    .photo img{
+        min-height:300px;
+    }
+
+    .timeline::before{
+        left:8px;
+    }
+
+    .memory,
+    .memory:nth-child(even){
+        width:100%;
+        margin-left:0;
+        padding-left:30px;
+        text-align:left;
+    }
+
+    .memory-card{
+        width:100%;
     }
 }
 </style>
@@ -287,199 +368,247 @@ section{
 
 <body>
 
-<div class="hero">
+<div class="background"></div>
+<div class="stars"></div>
 
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
-<div class="heart">♥</div>
+<!-- MÜZİK -->
+<audio id="music" autoplay loop>
+    <source src="muzik.mp3" type="audio/mpeg">
+</audio>
 
-<h1>Ezgi & Yasin</h1>
+<div class="music" id="musicButton">♫</div>
 
-<p>İyi ki sen.</p>
+<!-- AÇILIŞ -->
+<header class="hero">
 
-<p class="date">7 Ekim 2024'ten beri ❤️</p>
+    <div class="small">Bir hikâyenin başlangıcı</div>
 
-<div class="scroll">↓</div>
+    <h1>Ezgi<br>&amp; Yasin ❤️</h1>
 
-</div>
+    <p class="subtitle">
+        Bazı insanlar hayatımıza tesadüfen girer...
+        Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
+    </p>
+
+    <div class="date">
+        7 Ekim 2024 • Bizim başlangıcımız
+    </div>
+
+    <div class="scroll">
+        ↓<br>
+        <small>hikâyemize devam et</small>
+    </div>
+
+</header>
 
 
+<!-- HİKAYE -->
 <section>
 
-<div class="title">
-<h2>Bizim Hikâyemiz</h2>
-<span></span>
-</div>
+    <h2 class="section-title">Bizim Hikâyemiz</h2>
 
-<div class="counter">
+    <p class="section-text">
+        İlk günden bugüne kadar yaşadığımız küçük büyük
+        bütün anlar... Bazıları bir fotoğraf,
+        bazıları sadece ikimizin bildiği bir hatıra.
+        Ama hepsi bizim.
+    </p>
 
-<div>
-<strong id="days">0</strong>
-<small>Gün</small>
-</div>
+    <div class="timeline">
 
-<div>
-<strong id="hours">0</strong>
-<small>Saat</small>
-</div>
+        <div class="memory">
+            <div class="memory-card">
+                <h3>7 Ekim 2024 ❤️</h3>
+                <p>
+                    Her şeyin başladığı gün.
+                    O gün henüz bunun hayatımızdaki
+                    en güzel başlangıçlardan biri olduğunu bilmiyorduk.
+                </p>
+            </div>
+        </div>
 
-<div>
-<strong id="minutes">0</strong>
-<small>Dakika</small>
-</div>
+        <div class="memory">
+            <div class="memory-card">
+                <h3>Sonra...</h3>
+                <p>
+                    Birlikte güldük, birlikte gezdik,
+                    bazen saçmaladık, bazen tartıştık.
+                    Ama her seferinde yine birbirimizi seçtik.
+                </p>
+            </div>
+        </div>
 
-<div>
-<strong id="seconds">0</strong>
-<small>Saniye</small>
-</div>
+        <div class="memory">
+            <div class="memory-card">
+                <h3>Bugün ❤️</h3>
+                <p>
+                    Ve hâlâ buradayız.
+                    Geçmişteki bütün güzel anıların
+                    yanına yenilerini eklemeye devam ediyoruz.
+                </p>
+            </div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
 
+<!-- FOTOĞRAFLAR -->
 <section>
 
-<div class="story">
+    <h2 class="section-title">Bizden Kareler 📸</h2>
 
-<div class="story-text">
+    <p class="section-text">
+        Eskiden yeniye...
+        Çünkü güzel şeyleri en başından anlatmak gerekir.
+    </p>
 
-<h2>İyi ki sen.</h2>
-
-<p>
-Bazı insanlar hayatımıza girer ve her şey biraz daha güzel olur.
-Sen benim için tam olarak öylesin Ezgi.
-</p>
-
-<br>
-
-<p>
-Seninle geçirdiğim zamanın sadece büyük anları değil,
-en sıradan dakikaları bile benim için değerli.
-</p>
-
-<br>
-
-<p class="highlight">
-Ve daha yaşayacağımız çok şey var.
-</p>
-
-</div>
-
-<div class="story-photo">
-📷 Fotoğrafımız burada olacak
-</div>
-
-</div>
+    <div class="gallery" id="gallery"></div>
 
 </section>
 
 
-<section>
+<!-- SAYAÇ -->
+<section class="counter">
 
-<div class="title">
+    <h2 class="section-title">Ne Kadar Oldu? ❤️</h2>
 
-<h2>Bizden Kareler ❤️</h2>
+    <p class="section-text">
+        7 Ekim 2024'ten beri geçen zaman.
+    </p>
 
-<span></span>
+    <div class="counter-box">
 
-</div>
+        <div class="count">
+            <strong id="days">0</strong>
+            <span>GÜN</span>
+        </div>
 
-<div class="gallery">
+        <div class="count">
+            <strong id="hours">0</strong>
+            <span>SAAT</span>
+        </div>
 
-<div class="photo">Fotoğraf 01</div>
-<div class="photo">Fotoğraf 02</div>
-<div class="photo">Fotoğraf 03</div>
-<div class="photo">Fotoğraf 04</div>
-<div class="photo">Fotoğraf 05</div>
-<div class="photo">Fotoğraf 06</div>
-<div class="photo">Fotoğraf 07</div>
-<div class="photo">Fotoğraf 08</div>
-<div class="photo">Fotoğraf 09</div>
-<div class="photo">Fotoğraf 10</div>
-<div class="photo">Fotoğraf 11</div>
-<div class="photo">Fotoğraf 12</div>
-<div class="photo">Fotoğraf 13</div>
-<div class="photo">Fotoğraf 14</div>
-<div class="photo">Fotoğraf 15</div>
+        <div class="count">
+            <strong id="minutes">0</strong>
+            <span>DAKİKA</span>
+        </div>
 
-</div>
+        <div class="count">
+            <strong id="seconds">0</strong>
+            <span>SANİYE</span>
+        </div>
 
-</section>
-
-
-<section>
-
-<div class="letter">
-
-<h2>Sana Birkaç Kelime...</h2>
-
-<p>
-İyi ki hayatıma girdin Ezgi.
-Seninle birlikte geçen zaman bana bir şeyi çok net gösterdi:
-Bazı insanlar sadece hayatımıza girmez,
-<strong>hayatımızın bir parçası olur.</strong>
-</p>
-
-<br>
-
-<p>
-Seninle güldüğüm, konuştuğum, sustuğum,
-hatta hiçbir şey yapmadan yanında olduğum anların bile
-bende ayrı bir yeri var.
-</p>
-
-<br>
-
-<p class="highlight">
-İyi ki yollarımız kesişmiş.
-</p>
-
-</div>
+    </div>
 
 </section>
 
 
-<div class="final">
+<!-- SON -->
+<section class="final">
 
-<h2>Son olarak...</h2>
+    <div>
 
-<p>
-Bu site sadece birkaç fotoğraf ve birkaç kelimeden ibaret değil.
-<br>
-Bizim hikâyemiz bundan çok daha büyük.
-</p>
+        <h2>İyi ki sen. ❤️</h2>
 
-<p class="highlight">
-Seni seviyorum Ezgi. ❤️
-</p>
+        <p>
+            Hayatımdaki en güzel tesadüflerden biri değil,
+            en güzel seçimimsin.
 
-<div class="infinity">∞</div>
+            <br><br>
 
-</div>
+            Geçmişteki bütün fotoğraflarımızı seviyorum.
+            Ama en çok da henüz çekmediğimiz
+            fotoğrafları merak ediyorum.
+
+            <br><br>
+
+            Çünkü bizim hikâyemiz burada bitmiyor.
+        </p>
+
+        <div class="signature">
+            Ezgi &amp; Yasin
+        </div>
+
+    </div>
+
+</section>
 
 
 <script>
+
+/* FOTOĞRAFLARI GITHUB'DAN OTOMATİK BUL */
+async function loadPhotos(){
+
+    const gallery = document.getElementById("gallery");
+
+    try{
+
+        const response = await fetch(
+            "https://api.github.com/repos/dukyasin-coder/ezgi-yasin/contents/"
+        );
+
+        const files = await response.json();
+
+        const images = files
+            .filter(file =>
+                file.type === "file" &&
+                /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
+            )
+            .sort((a,b) =>
+                a.name.localeCompare(b.name)
+            );
+
+        images.forEach((file,index)=>{
+
+            const box = document.createElement("div");
+            box.className = "photo";
+
+            const img = document.createElement("img");
+
+            img.src = file.download_url;
+            img.alt = "Ezgi & Yasin anısı " + (index + 1);
+            img.loading = "lazy";
+
+            box.appendChild(img);
+            gallery.appendChild(box);
+
+        });
+
+    }catch(error){
+
+        gallery.innerHTML =
+        "<p style='text-align:center;opacity:.6'>Fotoğraflar yüklenirken küçük bir sorun oldu.</p>";
+
+    }
+
+}
+
+loadPhotos();
+
+
+/* SAYAÇ */
 
 const startDate = new Date("2024-10-07T00:00:00");
 
 function updateCounter(){
 
-    const now = new Date();
-
-    let diff = now - startDate;
+    let diff = Date.now() - startDate.getTime();
 
     if(diff < 0) diff = 0;
 
-    const days = Math.floor(diff / 86400000);
+    const days =
+        Math.floor(diff / 86400000);
 
-    const hours = Math.floor((diff % 86400000) / 3600000);
+    const hours =
+        Math.floor((diff % 86400000) / 3600000);
 
-    const minutes = Math.floor((diff % 3600000) / 60000);
+    const minutes =
+        Math.floor((diff % 3600000) / 60000);
 
-    const seconds = Math.floor((diff % 60000) / 1000);
+    const seconds =
+        Math.floor((diff % 60000) / 1000);
 
     document.getElementById("days").textContent = days;
 
@@ -491,13 +620,83 @@ function updateCounter(){
 
     document.getElementById("seconds").textContent =
         String(seconds).padStart(2,"0");
+
 }
 
 updateCounter();
-
 setInterval(updateCounter,1000);
 
-</script>
 
+/* KALP ANİMASYONU */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+
+    heart.style.left =
+        Math.random() * 100 + "vw";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 6) + "s";
+
+    heart.style.fontSize =
+        (12 + Math.random() * 18) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },12000);
+
+}
+
+setInterval(createHeart,900);
+
+
+/* MÜZİK */
+
+const music = document.getElementById("music");
+const musicButton = document.getElementById("musicButton");
+
+musicButton.onclick = function(){
+
+    if(music.paused){
+
+        music.play()
+        .then(()=>{
+            musicButton.textContent = "♫";
+        })
+        .catch(()=>{});
+
+    }else{
+
+        music.pause();
+        musicButton.textContent = "🔇";
+
+    }
+
+};
+
+
+/*
+Telefon tarayıcıları kullanıcı etkileşimi olmadan
+sesli müziği engelleyebilir.
+İlk dokunuşta müziği başlatmayı deniyoruz.
+*/
+
+document.addEventListener("click",function(){
+
+    if(music.paused){
+
+        music.play().catch(()=>{});
+
+    }
+
+},{once:true});
+
+</script>
 </body>
-  </html>
+</html>
