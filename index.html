@@ -2,402 +2,192 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ezgi ❤️ Yasin</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
-    background:#08070d;
-    color:white;
-    font-family:Arial,sans-serif;
-    overflow-x:hidden;
+background:#09080f;color:white;font-family:Arial;text-align:center;
 }
-
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    background:
-    radial-gradient(circle at 20% 20%,rgba(255,80,150,.18),transparent 35%),
-    radial-gradient(circle at 80% 80%,rgba(100,120,255,.16),transparent 35%);
-}
-
-.hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:30px 20px;
-}
-
-.small{
-    opacity:.6;
-    margin-bottom:25px;
-}
-
-h1{
-    font-size:clamp(50px,15vw,110px);
-    line-height:1;
-    margin-bottom:30px;
-    background:linear-gradient(135deg,#ff7aae,#ff4f91,#9c6cff);
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-}
-
-.subtitle{
-    max-width:650px;
-    line-height:1.8;
-    opacity:.75;
-}
-
-.date{
-    margin-top:25px;
-    opacity:.65;
-}
-
-.scroll{
-    margin-top:60px;
-    opacity:.5;
-}
-
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:80px 20px;
-}
-
-.section-title{
-    text-align:center;
-    font-size:34px;
-    margin-bottom:20px;
-}
-
-.section-text{
-    max-width:650px;
-    margin:0 auto 40px;
-    text-align:center;
-    line-height:1.8;
-    opacity:.7;
-}
-
-.memory{
-    margin-bottom:20px;
-}
-
-.memory-card{
-    padding:25px;
-    border-radius:20px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.memory-card h3{
-    margin-bottom:15px;
-}
-
-.memory-card p{
-    line-height:1.8;
-    opacity:.75;
-}
-
+section{padding:60px 15px;max-width:900px;margin:auto}
+h1{font-size:55px;margin:80px 0 25px;color:#ff6699}
+h2{font-size:32px;margin-bottom:20px}
+p{line-height:1.8;opacity:.75}
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
+display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:30px
 }
-
-.photo{
-    overflow:hidden;
-    border-radius:20px;
-    background:#15151c;
+.gallery img{
+width:100%;height:280px;object-fit:cover;border-radius:18px
 }
-
-.photo img{
-    display:block;
-    width:100%;
-    height:300px;
-    object-fit:cover;
-}
-
 .counter{
-    text-align:center;
+display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px
 }
-
-.counter-box{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
+.box{
+background:#17151f;padding:20px;border-radius:15px;min-width:80px
 }
-
-.count{
-    min-width:80px;
-    padding:18px 10px;
-    border-radius:18px;
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.1);
-}
-
-.count strong{
-    display:block;
-    font-size:28px;
-}
-
-.count span{
-    font-size:12px;
-    opacity:.6;
-}
-
+.box b{font-size:28px;display:block}
 .music{
-    text-align:center;
-    padding:50px 20px 100px;
+margin:40px auto;padding:35px 20px;background:#17151f;
+border-radius:25px;max-width:500px
 }
-
-audio{
-    width:min(90%,500px);
+button{
+border:0;border-radius:50px;padding:18px 35px;
+font-size:18px;font-weight:bold;background:#ff4f91;color:white;
+margin-top:20px;cursor:pointer
 }
-
-footer{
-    text-align:center;
-    padding:30px;
-    opacity:.5;
-}
-
-@media(max-width:600px){
-    .gallery{
-        grid-template-columns:1fr;
-    }
-
-    .photo img{
-        height:300px;
-    }
-
-    section{
-        padding:65px 16px;
-    }
-}
+#status{margin-top:15px;opacity:.7}
 </style>
 </head>
 
 <body>
 
-<header class="hero">
+<section>
+<h1>Ezgi & Yasin ❤️</h1>
 
-<div class="small">Bir hikâyenin başlangıcı</div>
-
-<h1>Ezgi<br>&amp; Yasin ❤️</h1>
-
-<p class="subtitle">
-Bazı insanlar hayatımıza tesadüfen girer...
-<br>
+<p>
+Bazı insanlar hayatımıza tesadüfen girer...<br>
 Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
 </p>
 
-<div class="date">
-7 Ekim 2024 • Bizim başlangıcımız
-</div>
-
-<div class="scroll">
-↓<br>
-<small>hikâyemize devam et</small>
-</div>
-
-</header>
-
-
-<section>
-
-<h2 class="section-title">Bizim Hikâyemiz</h2>
-
-<p class="section-text">
-İlk günden bugüne kadar yaşadığımız küçük büyük
-bütün anlar... Bazıları bir fotoğraf,
-bazıları sadece ikimizin bildiği bir hatıra.
-Ama hepsi bizim.
-</p>
-
-<div class="memory">
-<div class="memory-card">
-<h3>7 Ekim 2024 ❤️</h3>
-<p>
-Her şeyin başladığı gün.
-O gün henüz bunun hayatımızdaki
-en güzel başlangıçlardan biri olduğunu bilmiyorduk.
-</p>
-</div>
-</div>
-
-<div class="memory">
-<div class="memory-card">
-<h3>Birlikte Geçen Zaman ❤️</h3>
-<p>
-Birlikte güldük, birlikte gezdik,
-bazen saçmaladık, bazen tartıştık.
-Ama her seferinde yine birbirimizi seçtik.
-</p>
-</div>
-</div>
-
-<div class="memory">
-<div class="memory-card">
-<h3>Bugün ❤️</h3>
-<p>
-Ve hâlâ buradayız.
-Geçmişteki güzel anıların yanına
-yenilerini eklemeye devam ediyoruz.
-</p>
-</div>
-</div>
-
+<p style="margin-top:20px">7 Ekim 2024 ❤️</p>
 </section>
 
+<section>
+<h2>Bizim Hikâyemiz</h2>
+<p>
+İlk günden bugüne kadar yaşadığımız bütün güzel anlar,
+küçük büyük tüm hatıralar burada.
+</p>
+</section>
 
 <section>
-
-<h2 class="section-title">Bizden Kareler 📸</h2>
-
-<p class="section-text">
-Eskiden yeniye... Çünkü güzel şeyleri
-en başından anlatmak gerekir.
-</p>
+<h2>Bizden Kareler 📸</h2>
 
 <div class="gallery">
 
-<div class="photo"><img src="./99d0795a9bdd34deb61dd7c268f71843.jpg"></div>
-<div class="photo"><img src="./IMG-20241007-WA0041.jpg"></div>
-<div class="photo"><img src="./IMG-20241009-WA0083.jpg"></div>
-<div class="photo"><img src="./IMG-20241025-WA0002.jpg"></div>
-<div class="photo"><img src="./IMG-20241112-WA0000.jpg"></div>
-<div class="photo"><img src="./IMG-20241112-WA0002.jpg"></div>
-<div class="photo"><img src="./IMG-20241118-WA0019.jpg"></div>
-<div class="photo"><img src="./IMG-20241209-WA0006.jpg"></div>
-<div class="photo"><img src="./IMG_20241122_123900.jpg"></div>
-<div class="photo"><img src="./IMG-20250223-WA0005.jpg"></div>
-<div class="photo"><img src="./IMG-20250223-WA0018.jpg"></div>
-<div class="photo"><img src="./IMG-20250223-WA0020.jpg"></div>
-<div class="photo"><img src="./IMG-20250223-WA0023.jpg"></div>
-<div class="photo"><img src="./IMG_20250114_184542.jpg"></div>
-<div class="photo"><img src="./IMG_20250114_184613.jpg"></div>
-<div class="photo"><img src="./IMG-20250504-WA0004.jpg"></div>
-<div class="photo"><img src="./IMG-20250514-WA0006.jpg"></div>
-<div class="photo"><img src="./IMG-20250514-WA0011.jpg"></div>
-<div class="photo"><img src="./IMG_20250521_174508.jpg"></div>
-<div class="photo"><img src="./IMG-20250628-WA0007.jpg"></div>
-<div class="photo"><img src="./IMG-20250705-WA0012.jpg"></div>
-<div class="photo"><img src="./IMG_20250710_173937.jpg"></div>
-<div class="photo"><img src="./IMG-20250714-WA0029.jpg"></div>
-<div class="photo"><img src="./IMG_20250714_204618.jpg"></div>
-<div class="photo"><img src="./IMG_20250725_165729.jpg"></div>
-<div class="photo"><img src="./IMG_20250725_174714.jpg"></div>
-<div class="photo"><img src="./IMG_20250910_182251.jpg"></div>
-<div class="photo"><img src="./IMG-20251025-WA0002.jpg"></div>
-<div class="photo"><img src="./IMG-20251231-WA0001.jpg"></div>
-<div class="photo"><img src="./IMG-20260705-WA0012.jpg"></div>
-<div class="photo"><img src="./IMG_20260214_141801.jpg"></div>
-<div class="photo"><img src="./IMG_20260705_113506.jpg"></div>
+<img src="./99d0795a9bdd34deb61dd7c268f71843.jpg">
+<img src="./IMG-20241007-WA0041.jpg">
+<img src="./IMG-20241009-WA0083.jpg">
+<img src="./IMG-20241025-WA0002.jpg">
+<img src="./IMG-20241112-WA0000.jpg">
+<img src="./IMG-20241112-WA0002.jpg">
+<img src="./IMG-20241118-WA0019.jpg">
+<img src="./IMG-20241209-WA0006.jpg">
+<img src="./IMG_20241122_123900.jpg">
+<img src="./IMG-20250223-WA0005.jpg">
+<img src="./IMG-20250223-WA0018.jpg">
+<img src="./IMG-20250223-WA0020.jpg">
+<img src="./IMG-20250223-WA0023.jpg">
+<img src="./IMG_20250114_184542.jpg">
+<img src="./IMG_20250114_184613.jpg">
+<img src="./IMG-20250504-WA0004.jpg">
+<img src="./IMG-20250514-WA0006.jpg">
+<img src="./IMG-20250514-WA0011.jpg">
+<img src="./IMG_20250521_174508.jpg">
+<img src="./IMG-20250628-WA0007.jpg">
+<img src="./IMG-20250714-WA0029.jpg">
+<img src="./IMG_20250714_204618.jpg">
+<img src="./IMG_20250725_165729.jpg">
+<img src="./IMG_20250725_174714.jpg">
+<img src="./IMG_20250910_182251.jpg">
+<img src="./IMG-20251025-WA0002.jpg">
+<img src="./IMG-20251231-WA0001.jpg">
+<img src="./IMG-20260705-WA0012.jpg">
+<img src="./IMG_20260214_141801.jpg">
+<img src="./IMG_20260705_113506.jpg">
 
 </div>
 </section>
 
+<section>
+<h2>Ne Kadar Oldu? ⏳</h2>
 
-<section class="counter">
-
-<h2 class="section-title">Ne Kadar Oldu? ⏳</h2>
-
-<p class="section-text">
-7 Ekim 2024'ten beri geçen zaman.
-</p>
-
-<div class="counter-box">
-
-<div class="count">
-<strong id="days">0</strong>
-<span>GÜN</span>
-</div>
-
-<div class="count">
-<strong id="hours">00</strong>
-<span>SAAT</span>
-</div>
-
-<div class="count">
-<strong id="minutes">00</strong>
-<span>DAKİKA</span>
-</div>
-
-<div class="count">
-<strong id="seconds">00</strong>
-<span>SANİYE</span>
-</div>
-
+<div class="counter">
+<div class="box"><b id="days">0</b>Gün</div>
+<div class="box"><b id="hours">00</b>Saat</div>
+<div class="box"><b id="minutes">00</b>Dakika</div>
+<div class="box"><b id="seconds">00</b>Saniye</div>
 </div>
 </section>
 
-
+<section>
 <div class="music">
 
-<h2 class="section-title">Bizim Şarkımız 🎵</h2>
+<h2>Bizim Şarkımız 🎵</h2>
 
-<br>
+<button onclick="muzikAc()" id="musicButton">
+🎵 ŞARKIYI ÇAL
+</button>
 
-<audio controls preload="metadata">
+<p id="status">Şarkıyı başlatmak için butona bas ❤️</p>
+
+<audio id="music" preload="auto">
 <source src="./music.mp3" type="audio/mpeg">
-Tarayıcınız ses oynatmayı desteklemiyor.
 </audio>
 
 </div>
-
-
-<footer>
-Ezgi &amp; Yasin ❤️
-</footer>
-
+</section>
 
 <script>
 
-const startDate = new Date("2024-10-07T00:00:00");
+const music=document.getElementById("music");
+const button=document.getElementById("musicButton");
+const status=document.getElementById("status");
 
-function updateCounter(){
+function muzikAc(){
 
-    const now = new Date();
-    let diff = now - startDate;
+if(music.paused){
 
-    if(diff < 0) diff = 0;
+music.play().then(function(){
 
-    const days = Math.floor(diff / 86400000);
+button.innerHTML="⏸️ ŞARKIYI DURDUR";
+status.innerHTML="Şarkımız çalıyor ❤️";
 
-    const hours = Math.floor(
-        (diff % 86400000) / 3600000
-    );
+}).catch(function(){
 
-    const minutes = Math.floor(
-        (diff % 3600000) / 60000
-    );
+status.innerHTML="Şarkı yüklenemedi. music.mp3 dosyasını kontrol et.";
 
-    const seconds = Math.floor(
-        (diff % 60000) / 1000
-    );
+});
 
-    document.getElementById("days").textContent = days;
+}else{
 
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
+music.pause();
+button.innerHTML="🎵 ŞARKIYI ÇAL";
+status.innerHTML="Şarkı durduruldu.";
 
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2,"0");
 }
 
-updateCounter();
-setInterval(updateCounter,1000);
+}
+
+music.addEventListener("ended",function(){
+
+button.innerHTML="🎵 ŞARKIYI ÇAL";
+status.innerHTML="Şarkı bitti ❤️";
+
+});
+
+
+const baslangic=new Date("2024-10-07T00:00:00");
+
+function sayac(){
+
+let fark=new Date()-baslangic;
+
+let gun=Math.floor(fark/86400000);
+let saat=Math.floor(fark%86400000/3600000);
+let dakika=Math.floor(fark%3600000/60000);
+let saniye=Math.floor(fark%60000/1000);
+
+document.getElementById("days").textContent=gun;
+document.getElementById("hours").textContent=String(saat).padStart(2,"0");
+document.getElementById("minutes").textContent=String(dakika).padStart(2,"0");
+document.getElementById("seconds").textContent=String(saniye).padStart(2,"0");
+
+}
+
+sayac();
+setInterval(sayac,1000);
 
 </script>
 
