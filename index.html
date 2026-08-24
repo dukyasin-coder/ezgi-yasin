@@ -3,50 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ezgi ❤️ Yasin</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-html{
-    scroll-behavior:smooth;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
     background:#08070d;
     color:white;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial,sans-serif;
     overflow-x:hidden;
 }
 
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    background:
-    radial-gradient(circle at 20% 20%,rgba(255,80,150,.18),transparent 35%),
-    radial-gradient(circle at 80% 80%,rgba(100,120,255,.16),transparent 35%);
-}
-
-.stars{
+body:before{
+    content:"";
     position:fixed;
     inset:0;
     z-index:-1;
-    pointer-events:none;
-}
-
-.star{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
-    border-radius:50%;
-    opacity:.4;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,80,150,.18),transparent 35%),
+    radial-gradient(circle at 80% 80%,rgba(100,120,255,.16),transparent 35%);
 }
 
 .hero{
@@ -56,17 +32,16 @@ body{
     justify-content:center;
     align-items:center;
     text-align:center;
-    padding:40px 20px;
+    padding:30px 20px;
 }
 
 .small{
-    font-size:15px;
-    opacity:.65;
+    opacity:.6;
     margin-bottom:25px;
 }
 
 h1{
-    font-size:clamp(48px,15vw,110px);
+    font-size:clamp(50px,15vw,110px);
     line-height:1;
     margin-bottom:30px;
     background:linear-gradient(135deg,#ff7aae,#ff4f91,#9c6cff);
@@ -79,46 +54,40 @@ h1{
     max-width:650px;
     line-height:1.8;
     opacity:.75;
-    font-size:17px;
 }
 
 .date{
-    margin-top:30px;
-    font-size:18px;
-    opacity:.7;
+    margin-top:25px;
+    opacity:.65;
 }
 
 .scroll{
     margin-top:60px;
-    opacity:.6;
+    opacity:.5;
 }
 
 section{
     max-width:1000px;
     margin:auto;
-    padding:90px 20px;
+    padding:80px 20px;
 }
 
 .section-title{
     text-align:center;
-    font-size:36px;
+    font-size:34px;
     margin-bottom:20px;
 }
 
 .section-text{
     max-width:650px;
-    margin:0 auto 50px;
+    margin:0 auto 40px;
     text-align:center;
     line-height:1.8;
     opacity:.7;
 }
 
-.timeline{
-    position:relative;
-}
-
 .memory{
-    margin-bottom:25px;
+    margin-bottom:20px;
 }
 
 .memory-card{
@@ -126,7 +95,6 @@ section{
     border-radius:20px;
     background:rgba(255,255,255,.06);
     border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 15px 40px rgba(0,0,0,.25);
 }
 
 .memory-card h3{
@@ -138,8 +106,6 @@ section{
     opacity:.75;
 }
 
-/* FOTOĞRAFLAR */
-
 .gallery{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -150,7 +116,6 @@ section{
     overflow:hidden;
     border-radius:20px;
     background:#15151c;
-    box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
 .photo img{
@@ -160,8 +125,6 @@ section{
     object-fit:cover;
 }
 
-/* SAYAÇ */
-
 .counter{
     text-align:center;
 }
@@ -169,14 +132,13 @@ section{
 .counter-box{
     display:flex;
     justify-content:center;
-    gap:15px;
+    gap:12px;
     flex-wrap:wrap;
-    margin-top:30px;
 }
 
 .count{
-    min-width:85px;
-    padding:20px 12px;
+    min-width:80px;
+    padding:18px 10px;
     border-radius:18px;
     background:rgba(255,255,255,.06);
     border:1px solid rgba(255,255,255,.1);
@@ -184,44 +146,30 @@ section{
 
 .count strong{
     display:block;
-    font-size:30px;
+    font-size:28px;
 }
 
 .count span{
-    font-size:13px;
+    font-size:12px;
     opacity:.6;
 }
 
-/* MÜZİK */
-
-.music-area{
+.music{
     text-align:center;
     padding:50px 20px 100px;
 }
 
-#musicButton{
-    border:0;
-    padding:15px 25px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#ff5b9c,#9c6cff);
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    box-shadow:0 10px 30px rgba(255,80,150,.25);
+audio{
+    width:min(90%,500px);
 }
 
 footer{
     text-align:center;
-    padding:40px 20px;
+    padding:30px;
     opacity:.5;
 }
 
 @media(max-width:600px){
-
-    section{
-        padding:70px 16px;
-    }
-
     .gallery{
         grid-template-columns:1fr;
     }
@@ -230,16 +178,8 @@ footer{
         height:300px;
     }
 
-    .section-title{
-        font-size:30px;
-    }
-
-    .count{
-        min-width:70px;
-    }
-
-    .count strong{
-        font-size:25px;
+    section{
+        padding:65px 16px;
     }
 }
 </style>
@@ -247,330 +187,188 @@ footer{
 
 <body>
 
-<div class="background"></div>
-<div class="stars" id="stars"></div>
-
-<!-- AÇILIŞ -->
-
 <header class="hero">
 
-    <div class="small">
-        Bir hikâyenin başlangıcı
-    </div>
+<div class="small">Bir hikâyenin başlangıcı</div>
 
-    <h1>
-        Ezgi<br>&amp; Yasin ❤️
-    </h1>
+<h1>Ezgi<br>&amp; Yasin ❤️</h1>
 
-    <p class="subtitle">
-        Bazı insanlar hayatımıza tesadüfen girer...
-        Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
-    </p>
+<p class="subtitle">
+Bazı insanlar hayatımıza tesadüfen girer...
+<br>
+Sonra bir bakarsın, hayatının en güzel kısmı olmuş.
+</p>
 
-    <div class="date">
-        7 Ekim 2024 • Bizim başlangıcımız
-    </div>
+<div class="date">
+7 Ekim 2024 • Bizim başlangıcımız
+</div>
 
-    <div class="scroll">
-        ↓<br>
-        <small>hikâyemize devam et</small>
-    </div>
+<div class="scroll">
+↓<br>
+<small>hikâyemize devam et</small>
+</div>
 
 </header>
 
 
-<!-- HİKÂYE -->
-
 <section>
 
-    <h2 class="section-title">
-        Bizim Hikâyemiz
-    </h2>
+<h2 class="section-title">Bizim Hikâyemiz</h2>
 
-    <p class="section-text">
-        İlk günden bugüne kadar yaşadığımız küçük büyük
-        bütün anlar... Bazıları bir fotoğraf,
-        bazıları sadece ikimizin bildiği bir hatıra.
-        Ama hepsi bizim.
-    </p>
+<p class="section-text">
+İlk günden bugüne kadar yaşadığımız küçük büyük
+bütün anlar... Bazıları bir fotoğraf,
+bazıları sadece ikimizin bildiği bir hatıra.
+Ama hepsi bizim.
+</p>
 
-    <div class="timeline">
+<div class="memory">
+<div class="memory-card">
+<h3>7 Ekim 2024 ❤️</h3>
+<p>
+Her şeyin başladığı gün.
+O gün henüz bunun hayatımızdaki
+en güzel başlangıçlardan biri olduğunu bilmiyorduk.
+</p>
+</div>
+</div>
 
-        <div class="memory">
-            <div class="memory-card">
-                <h3>7 Ekim 2024 ❤️</h3>
-                <p>
-                    Her şeyin başladığı gün.
-                    O gün henüz bunun hayatımızdaki
-                    en güzel başlangıçlardan biri olduğunu bilmiyorduk.
-                </p>
-            </div>
-        </div>
+<div class="memory">
+<div class="memory-card">
+<h3>Birlikte Geçen Zaman ❤️</h3>
+<p>
+Birlikte güldük, birlikte gezdik,
+bazen saçmaladık, bazen tartıştık.
+Ama her seferinde yine birbirimizi seçtik.
+</p>
+</div>
+</div>
 
-        <div class="memory">
-            <div class="memory-card">
-                <h3>Birlikte Geçen Zaman ❤️</h3>
-                <p>
-                    Birlikte güldük, birlikte gezdik,
-                    bazen saçmaladık, bazen tartıştık.
-                    Ama her seferinde yine birbirimizi seçtik.
-                </p>
-            </div>
-        </div>
-
-        <div class="memory">
-            <div class="memory-card">
-                <h3>Bugün ❤️</h3>
-                <p>
-                    Ve hâlâ buradayız.
-                    Geçmişteki bütün güzel anıların
-                    yanına yenilerini eklemeye devam ediyoruz.
-                </p>
-            </div>
-        </div>
-
-    </div>
+<div class="memory">
+<div class="memory-card">
+<h3>Bugün ❤️</h3>
+<p>
+Ve hâlâ buradayız.
+Geçmişteki güzel anıların yanına
+yenilerini eklemeye devam ediyoruz.
+</p>
+</div>
+</div>
 
 </section>
 
 
-<!-- FOTOĞRAFLAR -->
-
 <section>
 
-    <h2 class="section-title">
-        Bizden Kareler 📸
-    </h2>
+<h2 class="section-title">Bizden Kareler 📸</h2>
 
-    <p class="section-text">
-        Eskiden yeniye...
-        Çünkü güzel şeyleri en başından anlatmak gerekir.
-    </p>
+<p class="section-text">
+Eskiden yeniye... Çünkü güzel şeyleri
+en başından anlatmak gerekir.
+</p>
 
-    <div class="gallery">
+<div class="gallery">
 
-        <div class="photo">
-            <img src="./99d0795a9bdd34deb61dd7c268f71843.jpg">
-        </div>
+<div class="photo"><img src="./99d0795a9bdd34deb61dd7c268f71843.jpg"></div>
+<div class="photo"><img src="./IMG-20241007-WA0041.jpg"></div>
+<div class="photo"><img src="./IMG-20241009-WA0083.jpg"></div>
+<div class="photo"><img src="./IMG-20241025-WA0002.jpg"></div>
+<div class="photo"><img src="./IMG-20241112-WA0000.jpg"></div>
+<div class="photo"><img src="./IMG-20241112-WA0002.jpg"></div>
+<div class="photo"><img src="./IMG-20241118-WA0019.jpg"></div>
+<div class="photo"><img src="./IMG-20241209-WA0006.jpg"></div>
+<div class="photo"><img src="./IMG_20241122_123900.jpg"></div>
+<div class="photo"><img src="./IMG-20250223-WA0005.jpg"></div>
+<div class="photo"><img src="./IMG-20250223-WA0018.jpg"></div>
+<div class="photo"><img src="./IMG-20250223-WA0020.jpg"></div>
+<div class="photo"><img src="./IMG-20250223-WA0023.jpg"></div>
+<div class="photo"><img src="./IMG_20250114_184542.jpg"></div>
+<div class="photo"><img src="./IMG_20250114_184613.jpg"></div>
+<div class="photo"><img src="./IMG-20250504-WA0004.jpg"></div>
+<div class="photo"><img src="./IMG-20250514-WA0006.jpg"></div>
+<div class="photo"><img src="./IMG-20250514-WA0011.jpg"></div>
+<div class="photo"><img src="./IMG_20250521_174508.jpg"></div>
+<div class="photo"><img src="./IMG-20250628-WA0007.jpg"></div>
+<div class="photo"><img src="./IMG-20250705-WA0012.jpg"></div>
+<div class="photo"><img src="./IMG_20250710_173937.jpg"></div>
+<div class="photo"><img src="./IMG-20250714-WA0029.jpg"></div>
+<div class="photo"><img src="./IMG_20250714_204618.jpg"></div>
+<div class="photo"><img src="./IMG_20250725_165729.jpg"></div>
+<div class="photo"><img src="./IMG_20250725_174714.jpg"></div>
+<div class="photo"><img src="./IMG_20250910_182251.jpg"></div>
+<div class="photo"><img src="./IMG-20251025-WA0002.jpg"></div>
+<div class="photo"><img src="./IMG-20251231-WA0001.jpg"></div>
+<div class="photo"><img src="./IMG-20260705-WA0012.jpg"></div>
+<div class="photo"><img src="./IMG_20260214_141801.jpg"></div>
+<div class="photo"><img src="./IMG_20260705_113506.jpg"></div>
 
-        <div class="photo">
-            <img src="./IMG-20241007-WA0041.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241009-WA0083.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241025-WA0002.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241112-WA0000.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241112-WA0002.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241118-WA0019.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20241209-WA0006.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20241122_123900.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250223-WA0005.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250223-WA0018.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250223-WA0020.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250223-WA0023.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250114_184542.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250114_184613.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250504-WA0004.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250514-WA0006.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250514-WA0011.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250521_174508.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250628-WA0007.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250705-WA0012.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250710_173937.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20250714-WA0029.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250714_204618.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250725_165729.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250725_174714.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20250910_182251.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20251025-WA0002.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20251231-WA0001.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20260214_141801.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG-20260705-WA0012.jpg">
-        </div>
-
-        <div class="photo">
-            <img src="./IMG_20260705_113506.jpg">
-        </div>
-
-    </div>
-
+</div>
 </section>
 
-
-<!-- SAYAÇ -->
 
 <section class="counter">
 
-    <h2 class="section-title">
-        Ne Kadar Oldu? ⏳
-    </h2>
+<h2 class="section-title">Ne Kadar Oldu? ⏳</h2>
 
-    <p class="section-text">
-        7 Ekim 2024'ten beri geçen zaman.
-    </p>
+<p class="section-text">
+7 Ekim 2024'ten beri geçen zaman.
+</p>
 
-    <div class="counter-box">
+<div class="counter-box">
 
-        <div class="count">
-            <strong id="days">0</strong>
-            <span>GÜN</span>
-        </div>
+<div class="count">
+<strong id="days">0</strong>
+<span>GÜN</span>
+</div>
 
-        <div class="count">
-            <strong id="hours">00</strong>
-            <span>SAAT</span>
-        </div>
+<div class="count">
+<strong id="hours">00</strong>
+<span>SAAT</span>
+</div>
 
-        <div class="count">
-            <strong id="minutes">00</strong>
-            <span>DAKİKA</span>
-        </div>
+<div class="count">
+<strong id="minutes">00</strong>
+<span>DAKİKA</span>
+</div>
 
-        <div class="count">
-            <strong id="seconds">00</strong>
-            <span>SANİYE</span>
-        </div>
+<div class="count">
+<strong id="seconds">00</strong>
+<span>SANİYE</span>
+</div>
 
-    </div>
-
+</div>
 </section>
 
 
-<!-- MÜZİK -->
+<div class="music">
 
-<div class="music-area">
+<h2 class="section-title">Bizim Şarkımız 🎵</h2>
 
-    <audio id="music" src="./music.mp3" preload="auto"></audio>
+<br>
 
-    <button id="musicButton">
-        🎵 Müziği Başlat
-    </button>
+<audio controls preload="metadata">
+<source src="./music.mp3" type="audio/mpeg">
+Tarayıcınız ses oynatmayı desteklemiyor.
+</audio>
 
 </div>
 
 
 <footer>
-    Ezgi &amp; Yasin ❤️
+Ezgi &amp; Yasin ❤️
 </footer>
 
 
 <script>
-
-/* YILDIZLAR */
-
-const stars = document.getElementById("stars");
-
-for(let i=0;i<70;i++){
-
-    const star = document.createElement("div");
-
-    star.className = "star";
-
-    star.style.left = Math.random()*100 + "%";
-    star.style.top = Math.random()*100 + "%";
-
-    stars.appendChild(star);
-}
-
-
-/* SAYAÇ */
 
 const startDate = new Date("2024-10-07T00:00:00");
 
 function updateCounter(){
 
     const now = new Date();
-
     let diff = now - startDate;
 
-    if(diff < 0){
-        diff = 0;
-    }
+    if(diff < 0) diff = 0;
 
     const days = Math.floor(diff / 86400000);
 
@@ -599,42 +397,7 @@ function updateCounter(){
 }
 
 updateCounter();
-
 setInterval(updateCounter,1000);
-
-
-/* MÜZİK */
-
-const music = document.getElementById("music");
-const musicButton = document.getElementById("musicButton");
-
-musicButton.addEventListener("click",async function(){
-
-    if(music.paused){
-
-        try{
-
-            await music.play();
-
-            musicButton.textContent =
-                "⏸ Müziği Durdur";
-
-        }catch(error){
-
-            alert("Müzik başlatılamadı. music.mp3 dosyasını kontrol et.");
-
-        }
-
-    }else{
-
-        music.pause();
-
-        musicButton.textContent =
-            "🎵 Müziği Başlat";
-
-    }
-
-});
 
 </script>
 
